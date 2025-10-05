@@ -28,13 +28,16 @@ export default function Testimonials() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 700,
-    slidesToShow: 1, // show 1 slide at a time
+    speed: 1000,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     arrows: false,
+    pauseOnHover: false,
   };
+
+  const reviewEmail = "youremail@example.com"; // <-- change to your email
 
   return (
     <section
@@ -44,6 +47,7 @@ export default function Testimonials() {
       <h2 style={{ fontSize: "2rem", marginBottom: "2rem", fontWeight: 700 }}>
         What Our Students Say
       </h2>
+
       <Slider {...settings} className="testimonials-slider">
         {testimonials.map((t) => (
           <div key={t.id} className="testimonial-card">
@@ -55,6 +59,27 @@ export default function Testimonials() {
           </div>
         ))}
       </Slider>
+
+      {/* Add Your Review Button */}
+      <div style={{ marginTop: "3rem" }}> {/* increased margin from 2rem → 3rem */}
+        <a
+          href={`mailto:${reviewEmail}?subject=New Review for Barium Academy`}
+          style={{
+            padding: "0.75rem 1.5rem",
+            backgroundColor: "#000", // black button
+            color: "#fff",
+            borderRadius: "5px",
+            textDecoration: "none",
+            fontWeight: 600,
+            transition: "0.3s",
+            display: "inline-block",
+          }}
+          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#333")}
+          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#000")}
+        >
+          Add Your Review
+        </a>
+      </div>
     </section>
   );
 }

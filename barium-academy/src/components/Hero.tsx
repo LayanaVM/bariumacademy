@@ -11,30 +11,27 @@ export default function Hero() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 2000,
     arrows: false,
   };
 
-  const slides = [
-    {
-      id: 1,
-      image: "https://images.unsplash.com/photo-1581091012184-7e9f8c8e9f0c?auto=format&fit=crop&w=1400&q=80", // new learning image
-      text: "Learn from Expert Tutors",
-      buttons: ["Book a Tutor", "Explore Courses"],
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1596496057564-0fc9c6a3db8f?auto=format&fit=crop&w=1400&q=80", // new skills image
-      text: "Boost Your Skills Anytime",
-      buttons: ["Book a Tutor", "Explore Courses"],
-    },
-    {
-      id: 3,
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80", // mentor connection image
-      text: "Connect with Mentors Globally",
-      buttons: ["Book a Tutor", "Whatsapp"],
-    },
-  ];
+ const slides = [
+ 
+
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=80",
+    text: "Boost Your Skills Anytime",
+    buttons: ["Book a Tutor", "Explore Courses"],
+  },
+  {
+    id: 3,
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80",
+    text: "Connect with Mentors Globally",
+    buttons: ["Book a Tutor", "Whatsapp"],
+  },
+];
+
 
   return (
     <section id="home" className="hero">

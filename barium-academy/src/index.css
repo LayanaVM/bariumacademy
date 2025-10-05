@@ -1,11 +1,23 @@
-/* ========== HEADER STYLES ========== */
+/* ========== GLOBAL ========== */
+html {
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #222;
+}
+
+/* ========== HEADER ========== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 👈 subtle grey shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -14,19 +26,24 @@
 .brand {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #222;
+  color: #004aad;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nav a {
   margin-left: 1.5rem;
   text-decoration: none;
-  color: #333;
+  color: #004aad;
   font-weight: 500;
+  transition: color 0.2s;
 }
 
 .nav a:hover {
-  color: #0077ff;
+  color: #f9b233;
 }
+
 /* ========== HERO SECTION ========== */
 .hero {
   width: 100%;
@@ -41,6 +58,7 @@
   width: 100%;
   height: 80vh;
   object-fit: cover;
+  filter: brightness(0.8);
 }
 
 .slide-content {
@@ -49,128 +67,97 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
   background: rgba(0, 0, 0, 0.4);
   padding: 2rem;
   border-radius: 10px;
 }
 
 .slide-content h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .slide-content button {
-  background-color: #0077ff;
-  color: white;
+  background-color: #f9b233;
+  color: #fff;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 .slide-content button:hover {
-  background-color: #005fcc;
-}
-/* ===== HERO SECTION ===== */
-.hero {
-  width: 100%;
-  position: relative;
+  background-color: #004aad;
 }
 
-.slide {
-  position: relative;
-}
-
-.slide-img {
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-}
-
-.slide-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* ========== COURSE CARDS ========== */
+.course-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem;
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #eee;
 }
 
-.slide-content h2 {
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-.slide-content button {
-  background-color: #222; /* dark button */
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.slide-content button:hover {
-  background-color: #444;
-}
-/* ===== COURSE CARDS HOVER ===== */
 .course-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
+
 .courses-grid {
   display: grid;
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
+  grid-template-columns: repeat(3, 1fr);
 }
 
 @media (max-width: 1024px) {
   .courses-grid {
-    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
   .courses-grid {
-    grid-template-columns: 1fr; /* Mobile: 1 column */
+    grid-template-columns: 1fr;
   }
 }
+
+/* ========== TESTIMONIALS ========== */
 .testimonials-slider .testimonial-card {
   padding: 2rem;
   border: 1px solid #ddd;
   border-radius: 10px;
   margin: 0 1rem;
-  background-color: #fff;
+  background-color: #ffffff;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .testimonials-slider .testimonial-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Optional: adjust dots color */
 .slick-dots li button:before {
-  color: #0077ff;
+  color: #f9b233;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #005fcc;
+  color: #004aad;
 }
-html {
-  scroll-behavior: smooth;
-}
+
+/* ========== DATE/TIME INPUTS ========== */
 .datepicker-input,
 .timepicker-input {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
   background-color: #fff;
@@ -179,11 +166,12 @@ html {
 
 .datepicker-input:focus,
 .timepicker-input:focus {
-  border-color: #222;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+  border-color: #004aad;
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.15);
   outline: none;
 }
 
+/* ========== DATEPICKER ========== */
 .react-datepicker {
   font-family: "Inter", sans-serif;
   border-radius: 10px;
@@ -191,7 +179,7 @@ html {
 }
 
 .react-datepicker__header {
-  background-color: #222;
+  background-color: #004aad;
   color: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

@@ -178,9 +178,9 @@ const handleSubmit = async (e: React.FormEvent) => {
 
 
         <textarea
-          name="message"
-          placeholder="Message"
-          value={formData.message}
+          name="location"
+          placeholder="Location"
+          value={formData.location}
           onChange={handleChange}
           style={inputStyle}
         />

@@ -16,7 +16,7 @@ export default function Footer() {
       </p>
       <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem" }}>
         <a
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/bariumacademy/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
           style={linkStyle}
