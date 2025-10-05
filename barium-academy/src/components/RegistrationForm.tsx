@@ -21,25 +21,41 @@ export default function RegistrationForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // inside RegistrationForm.tsx - replace handleSubmit with this exact code
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    // send JSON WITHOUT custom headers (avoids CORS preflight)
+    const resp = await fetch("https://script.google.com/macros/s/AKfycby6odJFED3ikZS2RQFt1P7EqasWIlL1300FV5nmXsLPMp50PU9yzGPcekJFNU7KeRea/exec", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    });
 
+    // debug: print HTTP status and raw response
+    console.log("HTTP status:", resp.status, resp.statusText);
+    const text = await resp.text();
+    console.log("Raw response text:", text);
+
+    // try parse JSON if possible
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzZovjd_OBJMX6uEbe7KCfXioCBmIWQQcIA9ZE1W64WHfXEw71rNShnBLvf-bjQ8Uzu/exec", {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: { "Content-Type": "application/json" },
-      });
-
-      const result = await response.json();
-      alert("Thank you! Your registration has been received.");
-      console.log(result);
-      setFormData({ name: "", email: "", Class: "", number: "", date: new Date(), location: "", message: "" });
+      const json = JSON.parse(text);
+      console.log("Parsed JSON response:", json);
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong. Please try again.");
+      console.log("Response is not JSON.");
     }
-  };
+
+    if (!resp.ok) {
+      throw new Error("Server returned " + resp.status);
+    }
+
+    alert("Thank you! Your registration has been received.");
+    setFormData({ name: "", email: "", Class: "", number: "", date: new Date(), location: "", message: "" });
+  } catch (err) {
+    console.error("Submit error:", err);
+    alert("Something went wrong. Please try again.");
+  }
+};
+
 
   return (
     <section id="registration" style={{ padding: "4rem 2rem", backgroundColor: "#fff", textAlign: "center" }}>
