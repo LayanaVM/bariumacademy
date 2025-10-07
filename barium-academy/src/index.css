@@ -312,3 +312,74 @@ section p {
   margin: 0 auto 2rem;
   line-height: 1.6;
 }
+/* ========== MOBILE RESPONSIVE CENTERING ========== */
+@media (max-width: 768px) {
+  /* Center header content */
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav {
+    margin-top: 0.8rem;
+    text-align: center;
+  }
+
+  .nav a {
+    display: inline-block;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+  }
+
+  /* Hero slide content */
+  .slide-content {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  /* Courses section */
+  .courses-grid {
+    justify-items: center; /* center cards */
+  }
+
+  /* Course cards text */
+  .course-card {
+    text-align: center;
+  }
+
+  /* Testimonials cards */
+  .testimonials-slider .testimonial-card {
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+  /* Forms & inputs */
+  form,
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .modern-input,
+  .datepicker-input,
+  .timepicker-input {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  /* Buttons */
+  button,
+  .slide-content button,
+  .course-card button,
+  .testimonials-slider .testimonial-card button {
+    margin: 0 auto;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+  }
+}

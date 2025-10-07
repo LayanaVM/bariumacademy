@@ -39,7 +39,8 @@ export default function Hero() {
     if (btnText.toLowerCase() === "be a tutor") {
       navigate("/tutor-registration");
     } else if (btnText.toLowerCase() === "whatsapp") {
-      window.open("https://wa.me/1234567890", "_blank");
+      window.open("https://wa.me/917306096664", "_blank");
+
     } else if (btnText.toLowerCase() === "book a tutor") {
       navigate("/registration");
     }
