@@ -37,45 +37,68 @@ export default function Testimonials() {
     pauseOnHover: false,
   };
 
-  const reviewEmail = "youremail@example.com"; // <-- change to your email
+  const reviewEmail = "youremail@example.com";
 
   return (
     <section
       id="testimonials"
-      style={{ padding: "4rem 2rem", backgroundColor: "#ffffff", textAlign: "center" }}
+      style={{
+        padding: "4rem 2rem",
+        background: "#f9faff",
+        textAlign: "center",
+      }}
     >
-      <h2 style={{ fontSize: "2rem", marginBottom: "2rem", fontWeight: 700 }}>
+      <h2
+        style={{
+          fontSize: "2rem",
+          marginBottom: "2rem",
+          fontWeight: 700,
+          color: "#004aad",
+        }}
+      >
         What Our Students Say
       </h2>
 
       <Slider {...settings} className="testimonials-slider">
         {testimonials.map((t) => (
           <div key={t.id} className="testimonial-card">
-            <p style={{ fontStyle: "italic", color: "#555", marginBottom: "1rem" }}>
+            <p
+              style={{
+                fontStyle: "italic",
+                color: "#555",
+                marginBottom: "1rem",
+                lineHeight: 1.6,
+              }}
+            >
               "{t.quote}"
             </p>
-            <h4 style={{ margin: 0, fontWeight: 600 }}>{t.name}</h4>
+            <h4 style={{ margin: 0, fontWeight: 600, color: "#004aad" }}>
+              {t.name}
+            </h4>
             <small style={{ color: "#888" }}>{t.role}</small>
           </div>
         ))}
       </Slider>
 
-      {/* Add Your Review Button */}
-      <div style={{ marginTop: "3rem" }}> {/* increased margin from 2rem → 3rem */}
+      <div style={{ marginTop: "3rem" }}>
         <a
           href={`mailto:${reviewEmail}?subject=New Review for Barium Academy`}
           style={{
-            padding: "0.75rem 1.5rem",
-            backgroundColor: "#000", // black button
+            padding: "0.8rem 1.8rem",
+            backgroundColor: "#004aad",
             color: "#fff",
-            borderRadius: "5px",
+            borderRadius: "8px",
             textDecoration: "none",
             fontWeight: 600,
             transition: "0.3s",
             display: "inline-block",
           }}
-          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#333")}
-          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#000")}
+          onMouseOver={(e) =>
+            (e.currentTarget.style.backgroundColor = "#0068c9")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.backgroundColor = "#004aad")
+          }
         >
           Add Your Review
         </a>

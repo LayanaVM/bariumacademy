@@ -6,8 +6,9 @@ html {
 
 body {
   margin: 0;
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #e8f1ff 0%, #ffffff 100%);
   color: #222;
+  overflow-x: hidden;
 }
 
 /* ========== HEADER ========== */
@@ -15,50 +16,75 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 3%;
   background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .brand {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 800;
   color: #004aad;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
 .nav a {
   margin-left: 1.5rem;
   text-decoration: none;
   color: #004aad;
-  font-weight: 500;
-  transition: color 0.2s;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover {
   color: #f9b233;
 }
 
+/* Mobile header */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    margin-top: 0.8rem;
+  }
+
+  .nav a {
+    display: inline-block;
+    margin: 0.5rem 1rem 0 0;
+  }
+}
+
 /* ========== HERO SECTION ========== */
 .hero {
-  width: 100%;
   position: relative;
+  width: 100%;
+  height: 100vh;
+  max-height: 900px;
+  min-height: 600px;
+  overflow: hidden;
 }
 
 .slide {
   position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .slide-img {
   width: 100%;
-  height: 80vh;
+  height: 100%;
   object-fit: cover;
   filter: brightness(0.8);
+  border-bottom: 4px solid #004aad;
 }
 
 .slide-content {
@@ -67,46 +93,67 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 2.5rem 3rem;
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+  width: 90%;
+  max-width: 700px;
 }
 
 .slide-content h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin-bottom: 1.5rem;
   color: #ffffff;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  line-height: 1.3;
+}
+
+.slide-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .slide-content button {
-  background-color: #f9b233;
+  background-color: #004aad;
   color: #fff;
   border: none;
-  padding: 0.8rem 1.8rem;
-  border-radius: 6px;
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  min-width: 160px;
 }
 
 .slide-content button:hover {
-  background-color: #004aad;
+  background-color: #0068c9;
+}
+
+@media (max-width: 640px) {
+  .slide-content {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .slide-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .slide-content button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
 }
 
 /* ========== COURSE CARDS ========== */
-.course-card {
+.courses-section {
+  padding: 5rem 5%;
   background: #ffffff;
-  border-radius: 10px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #eee;
-}
-
-.course-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .courses-grid {
@@ -114,26 +161,62 @@ body {
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-@media (max-width: 1024px) {
-  .courses-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.course-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.8rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 640px) {
-  .courses-grid {
-    grid-template-columns: 1fr;
-  }
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.course-card h3 {
+  color: #004aad;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.course-card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Buttons inside course cards */
+.course-card button {
+  background-color: #004aad;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.course-card button:hover {
+  background-color: #0068c9;
 }
 
 /* ========== TESTIMONIALS ========== */
+.testimonials-section {
+  background: linear-gradient(135deg, #e8f1ff 0%, #ffffff 100%);
+  padding: 5rem 5%;
+}
+
 .testimonials-slider .testimonial-card {
   padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
   margin: 0 1rem;
   background-color: #ffffff;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -141,7 +224,23 @@ body {
 
 .testimonials-slider .testimonial-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons inside testimonials (if any) */
+.testimonials-slider .testimonial-card button {
+  background-color: #004aad;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.testimonials-slider .testimonial-card button:hover {
+  background-color: #0068c9;
 }
 
 .slick-dots li button:before {
@@ -152,35 +251,64 @@ body {
   color: #004aad;
 }
 
-/* ========== DATE/TIME INPUTS ========== */
+/* ========== INPUTS ========== */
 .datepicker-input,
 .timepicker-input {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid #ccd5e0;
+  border-radius: 10px;
   font-size: 1rem;
   background-color: #fff;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .datepicker-input:focus,
 .timepicker-input:focus {
   border-color: #004aad;
-  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.15);
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.12);
   outline: none;
 }
 
-/* ========== DATEPICKER ========== */
-.react-datepicker {
-  font-family: "Inter", sans-serif;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* ========== FOOTER ========== */
+.footer {
+  background-color: #004aad;
+  color: #fff;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin-top: 3rem;
 }
 
-.react-datepicker__header {
-  background-color: #004aad;
-  color: white;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.footer a {
+  color: #f9b233;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ========== SECTION HEADINGS ========== */
+section h2,
+section h3 {
+  color: #004aad;
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+}
+
+section p {
+  text-align: center;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
 }

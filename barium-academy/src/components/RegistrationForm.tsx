@@ -185,7 +185,25 @@ const handleSubmit = async (e: React.FormEvent) => {
           style={inputStyle}
         />
 
-        <button type="submit" style={buttonStyle}>Submit</button>
+        <button
+  type="submit"
+  style={{
+    backgroundColor: "#004aad",
+    color: "#fff",
+    padding: "0.9rem 1.5rem",
+    border: "none",
+    borderRadius: "8px",
+    fontWeight: 600,
+    fontSize: "1rem",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+  }}
+  onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#0068c9")}
+  onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#004aad")}
+>
+  Submit
+</button>
+
       </form>
     </section>
   );

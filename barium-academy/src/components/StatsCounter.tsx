@@ -10,7 +10,7 @@ interface Stat {
 
 const StatsCounter: React.FC = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false, // Allow multiple triggers
+    triggerOnce: false,
     threshold: 0.3,
   });
 
@@ -34,18 +34,18 @@ const StatsCounter: React.FC = () => {
       id="stats"
       onMouseEnter={handleMouseEnter}
       style={{
-        padding: "4rem 2rem",
-        backgroundColor: "#f9f9f9",
+        padding: "6rem 2rem",
+        background: "linear-gradient(135deg, #e8f1ff 0%, #ffffff 100%)",
         textAlign: "center",
         transition: "all 0.3s ease",
       }}
     >
       <h2
         style={{
-          fontSize: "2rem",
-          marginBottom: "2rem",
-          fontWeight: 700,
-          color: "#222",
+          fontSize: "2.25rem",
+          marginBottom: "3rem",
+          fontWeight: 800,
+          color: "#004aad",
         }}
       >
         Our Achievements
@@ -54,9 +54,9 @@ const StatsCounter: React.FC = () => {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
           gap: "2rem",
-          maxWidth: "900px",
+          maxWidth: "1000px",
           margin: "0 auto",
         }}
       >
@@ -65,17 +65,26 @@ const StatsCounter: React.FC = () => {
             key={index}
             style={{
               background: "#fff",
-              borderRadius: "10px",
-              padding: "2rem 1rem",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              borderRadius: "16px",
+              padding: "2.5rem 1rem",
+              boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
               transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              cursor: "default",
             }}
             className="stat-card"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-5px)";
+              e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.12)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.08)";
+            }}
           >
             <h3
               style={{
                 fontSize: "2.5rem",
-                color: "#222",
+                color: "#004aad",
                 marginBottom: "0.5rem",
                 fontWeight: 700,
               }}
@@ -86,7 +95,15 @@ const StatsCounter: React.FC = () => {
                 "0"
               )}
             </h3>
-            <p style={{ fontSize: "1.1rem", color: "#555" }}>{stat.label}</p>
+            <p
+              style={{
+                fontSize: "1.1rem",
+                color: "#555",
+                fontWeight: 600,
+              }}
+            >
+              {stat.label}
+            </p>
           </div>
         ))}
       </div>
