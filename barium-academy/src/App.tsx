@@ -12,27 +12,31 @@ import TutorRegistration from "./TutorRegistration";
 function App() {
   return (
     <Router>
-      <Routes>
-        {/* Home page */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Header />
-              <Hero />
-              <WhyBarium />
-              <Courses />
-              <StatsCounter />
-              <Testimonials />
-              <RegistrationForm />
-              <Footer />
-            </>
-          }
-        />
+     <Routes>
+  {/* Home page */}
+  <Route
+    path="/"
+    element={
+      <>
+        <Header />
+        <Hero />
+        <WhyBarium />
+        <Courses />
+        <StatsCounter />
+        <Testimonials />
+        <RegistrationForm />
+        <Footer />
+      </>
+    }
+  />
 
-        {/* Tutor registration page */}
-        <Route path="/tutor-registration" element={<TutorRegistration />} />
-      </Routes>
+  {/* Registration page */}
+  <Route path="/registration" element={<RegistrationForm />} />
+
+  {/* Tutor registration page */}
+  <Route path="/tutor-registration" element={<TutorRegistration />} />
+</Routes>
+
     </Router>
   );
 }
